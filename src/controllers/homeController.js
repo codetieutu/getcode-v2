@@ -1,11 +1,21 @@
-const formatData = require("../service/formatData");
-const { getAllMail } = require("../service/mailDao")
+const { get } = require("../router/web");
+const { getAllMail } = require("../service/mail");
 
-const getHomePage = async (req, res) => {
-    let results = await getAllMail();
-    res.render("homePage", ({ mails: formatData(results) }))
+
+const getHomePage = (req, res) => {
+    res.render("homePage")
 }
 
+const getAdminPage = (req, res) => {
+    res.render("admin")
+}
+
+const getDeletePage = async (req, res) => {
+    const mails = await getAllMail();
+    res.render('delete', { mails: mails })
+}
 module.exports = {
-    getHomePage
+    getHomePage,
+    getAdminPage,
+    getDeletePage
 }

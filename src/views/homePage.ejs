@@ -3,47 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manager</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="./css/home.css">
+    <title>Get Verification Code</title>
+    <link rel="stylesheet" href="./css/home.scss">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <h1>Manager</h1>
-    </header>
+    <h1>Get Your ChatGPT Verification Code</h1>
 
-    <body>
-        <div class="btn-container">
-            <button class="delete-btn">delete</button>
-            <button class="add_btn">add</button>
+    <div class="form-container">
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
         </div>
-        <div class="table-container">
-            <table>
-                <tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>email</th>
-                    <th>time</th>
-                </tr>
-                <%mails.forEach(mail=>{%>
-                    <tr>
-                        <td><input type="checkbox" class="selectM" data-id="<%=mail.id%>" />&nbsp;</td>
-                        <td>
-                            <%=mail.id%>
-                        </td>
-                        <td>
-                            <%=mail.email%>
-                        </td>
-                        <td>
-                            <%=mail.time%>
-                        </td>
-                    </tr>
-                    <%});%>
-            </table>
+        <label id="notice" class="notice"></label>
+        <button class="btn">Get Code</button>
+        <div class="result">
+            <label id="code" class="code"></label>
+            <label id="loading" class="loading"></label>
         </div>
-    </body>
-    <script src="js/home.js"></script>
+    </div>
+    </div>
+    <script src="./js/home.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,102 @@
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: #752699;
+}
+
+button {
+    font-size: 18px;
+    background-color: #752699;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #4c0f68;
+}
+
+#input-data,
+#input-pass {
+    display: none;
+}
+
+.password-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+.buttons-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons-control button {
+    margin-right: 5px;
+}
+
+.buttons-control button:last-child {
+    margin-right: 0;
+}
+
+.main-screen {
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
+    border-radius: 9px;
+    margin-left: 30%;
+    width: 60vh;
+
+}
+
+th,
+td {
+    border: 1px solid #000;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+}
+
+.password-container h2 {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 20px;
+}
+
+textarea {
+    font-size: 22px;
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
