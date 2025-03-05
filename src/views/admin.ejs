@@ -1,37 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>upload data</title>
-    <link rel="stylesheet" href="./css/admin.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>Import Mail</title>
+    <style>
+        /* Căn giữa nội dung trong trang */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
+        /* Thiết kế nút bấm */
+        #importButton {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        /* Hiệu ứng hover */
+        #importButton:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hiệu ứng nhấn nút */
+        #importButton:active {
+            transform: scale(0.95);
+        }
+    </style>
 </head>
 
 <body>
-    <!-- <div id="password-screen" class="password-overlay">
-        <div class="password-container">
-            <h2>Nhập mật khẩu để truy cập</h2>
-            <input type="password" id="password-input" placeholder="Nhập mật khẩu">
-            <button onclick="verify()">Xác nhận</button>
-            <p id="error-message"></p>
-        </div>
-    </div> -->
-    <div class="main-screen">
-        <h1>Manager</h1>
+    <button id="importButton">Import Mail</button>
 
-        <div id="inputmail">
-            <textarea id="input-mail" rows="14" placeholder="email|pass|token|cliend_id" wrap="soft"></textarea>
-            <div class="button-container">
-                <button id="but" class="save">Save</button>
-            </div>
-        </div>
+    <script>
+        document.getElementById("importButton").addEventListener("click", async () => {
+            try {
+                const response = await fetch("/import-mail", {
+                    method: "POST"
+                });
 
-    </div>
+                if (!response.ok) {
+                    throw new Error(`Lỗi: ${response.statusText}`);
+                }
 
-    <script src="js/admin.js"></script>
+                const result = await response.json();
+                alert(`✅ Số mail được thêm: ${result.mailadded}`);
+            } catch (error) {
+                alert(`❌ Lỗi khi import mail: ${error.message}`);
+            }
+        });
+    </script>
 </body>
+
+</html>

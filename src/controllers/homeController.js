@@ -1,4 +1,3 @@
-const { get } = require("../router/web");
 const { getAllMail } = require("../service/mail");
 
 
