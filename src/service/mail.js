@@ -49,53 +49,9 @@ const addMail = async (mail, token, client_id) => {
     }
 }
 
-const getAllMail = async () => {
-    try {
-        const query = "SELECT * FROM Mail ";
-        const [mails] = await connection.query(query);
 
-        if (mails.length === 0) {
-            return null;
-        }
-
-        return mails
-
-    } catch (error) {
-        console.error("Database Query Error:", error.message);
-        return null;
-    }
-}
-
-const deleteOneMail = async (id) => {
-    try {
-        const query = "DELETE FROM Mail where id =? ";
-        await connection.query(query, [id]);
-
-        return true;
-
-    } catch (error) {
-        console.error("Database Query Error:", error.message);
-        return false;
-    }
-}
-
-
-const deleteAllMail = async () => {
-    try {
-        const query = "DELETE FROM Mail  ";
-        await connection.query(query);
-        return true;
-
-    } catch (error) {
-        console.error("Database Query Error:", error.message);
-        return false;
-    }
-}
 module.exports = {
     getMail,
     checkMail,
     addMail,
-    getAllMail,
-    deleteOneMail,
-    deleteAllMail
 }
